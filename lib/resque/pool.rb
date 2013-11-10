@@ -401,7 +401,7 @@ module Resque
         call_after_prefork!
         reset_sig_handlers!
         #self_pipe.each {|io| io.close }
-        worker.work(ENV['INTERVAL'] || DEFAULT_WORKER_INTERVAL) # interval, will block
+        worker.work
       end
       workers[queues][pid] = worker
     end
